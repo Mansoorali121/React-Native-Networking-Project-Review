@@ -6,36 +6,57 @@ const Base_url = 'https://69609023e7aa517cb79661a7.mockapi.io/Books';
 
 const App = () => {
   const getBooks = async () => {
-    const response = await axios.get(`${Base_url}`);
-    console.log(JSON.stringify(response.data, null, 3));
+    try {
+      const response = await axios.get(`${Base_url}`);
+      console.log(JSON.stringify(response.data, null, 3));
+      Alert.alert('Books data Fetched');
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Error Occured: ');
+    }
   };
   // Adding Book
   const addBook = async () => {
-    const response = await axios.post(`${Base_url}`, {
-      author: 'Isri',
-      cover: 'https://picsum.photos/seed/fXytBvu5g5/1509/3939',
-      name_of_book: 'Fifty Weeks',
-      id: '12',
-    });
-    console.log(response.data);
-    Alert.alert('Book wad Added Successfully ');
+    try {
+      const response = await axios.post(`${Base_url}`, {
+        author: 'Isri',
+        cover: 'https://picsum.photos/seed/fXytBvu5g5/1509/3939',
+        name_of_book: 'Fifty Weeks',
+        id: '12',
+      });
+      console.log(response.data);
+      Alert.alert('Book wad Added Successfully ');
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Book was Added Successfully: ');
+    }
   };
   // Delete Book
 
   const deletebook = async () => {
-    const response = await axios.delete(`${Base_url}/6`);
-    console.log(response.data);
-    Alert.alert('Book was successfully Deleted  ');
+    try {
+      const response = await axios.delete(`${Base_url}/6`);
+      console.log(response.data);
+      Alert.alert('Book was successfully Deleted  ');
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Book was deleted Successfully: ');
+    }
   };
   //  Edit Book Data
   const editbooks = async () => {
-    const response = await axios.put(`${Base_url}/7`, {
-      author: 'Mansoor ',
-      cover: 'https://picsum.photos/seed/fXytBvu5g5/1509/3939',
-      name_of_book: 'Shades of Book ',
-    });
-    console.log(response.data);
-    Alert.alert('Book Was Updated Successfully ');
+    try {
+      const response = await axios.put(`${Base_url}/7`, {
+        author: 'Mansoor ',
+        cover: 'https://picsum.photos/seed/fXytBvu5g5/1509/3939',
+        name_of_book: 'Shades of Book ',
+      });
+      console.log(response.data);
+      Alert.alert('Book Was Updated Successfully ');
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Book was deleted Successfully: ');
+    }
   };
   useEffect(() => {
     getBooks();
