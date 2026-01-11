@@ -1,5 +1,3 @@
-
-
 import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Book from '../components/Book';
@@ -21,11 +19,13 @@ const Home = () => {
       Alert.alert('Error occured.!');
     }
   };
+  // Delete Item Function
+  const ondeletePressHandler = async () => {};
 
   useEffect(() => {
     getbooklist();
   }, []);
-  
+
   return (
     <View>
       <FlatList
@@ -35,7 +35,15 @@ const Home = () => {
         data={data}
         showsVerticalScrollIndicator={false}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => <Book {...item} />}
+        renderItem={({ item }) => (
+          <Book
+            author={item.author}
+            nameofbook={item.nameofbook}
+            cover={item.cover}
+            price={item.price}
+            ondeletePress={ondeletePressHandler}
+          />
+        )}
       />
     </View>
   );

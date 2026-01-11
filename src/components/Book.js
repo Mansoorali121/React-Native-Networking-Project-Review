@@ -15,16 +15,19 @@ const Book = ({
   price,
   cover,
   categoryColor,
+  ondeletePress
 }) => {
   return (
     <View style={styles.container}>
       <View style={[styles.coloredSquare, {backgroundColor: categoryColor}]}>
         <Image source={{uri: cover}} style={styles.image} />
+        <Text onPress={ondeletePress} style={styles.deletetext}>Delete Text</Text>
       </View>
 
       <Text>{author}</Text>
       <Text>{nameofbook}</Text>
       <Text>{price}$</Text>
+
     </View>
   );
 };
@@ -43,9 +46,10 @@ const styles = StyleSheet.create({
   image: {
     height: 130,
     width: 80,
-    // resizeMode: 'stretch',
+    resizeMode: 'stretch',
     backgroundColor: 'blue',
     marginTop: -20,
     borderRadius: 8,
   },
+  deletetext:{color:"red"}
 });
