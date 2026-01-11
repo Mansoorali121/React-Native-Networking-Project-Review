@@ -13,13 +13,13 @@ const Book = ({
   author,
   nameofbook,
   price,
-  coverURL,
+  cover,
   categoryColor,
 }) => {
   return (
     <View style={styles.container}>
       <View style={[styles.coloredSquare, {backgroundColor: categoryColor}]}>
-        <Image source={{uri: coverURL}} style={styles.image} />
+        <Image source={{uri: cover}} style={styles.image} />
       </View>
 
       <Text>{author}</Text>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   image: {
     height: 130,
     width: 80,
-    resizeMode: 'stretch',
+    // resizeMode: 'stretch',
     backgroundColor: 'blue',
     marginTop: -20,
     borderRadius: 8,
