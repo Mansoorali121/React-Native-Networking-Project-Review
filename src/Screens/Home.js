@@ -2,11 +2,14 @@ import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Book from '../components/Book';
 import axios from 'axios';
+// import {useIsFocused} from '@react-navigation/native';
 
 const Base_url = 'https://69609023e7aa517cb79661a7.mockapi.io/Books';
 
 const Home = () => {
   const [data, setData] = useState([]);
+
+  // const isFocused = useIsFocused();
 
   const getbooklist = async () => {
     try {
@@ -22,7 +25,7 @@ const Home = () => {
   // Delete Item Function
   const ondeletePressHandler = async (bookId) => {
     try {
-      const response = await axios.delete(`${Base_url}/bookId`);
+      const response = await axios.delete(`${Base_url}/${bookId}`);
       Alert.alert('Book Was Deletec Successfully', bookId);
       console.log(response.data);
     } catch (error) {
