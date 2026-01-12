@@ -2,14 +2,14 @@ import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Book from '../components/Book';
 import axios from 'axios';
-// import {useIsFocused} from '@react-navigation/native';
+import {useIsFocused} from '@react-navigation/native';
 
 const Base_url = 'https://69609023e7aa517cb79661a7.mockapi.io/Books';
 
 const Home = () => {
   const [data, setData] = useState([]);
 
-  // const isFocused = useIsFocused();
+  const isFocused = useIsFocused();
 
   const getbooklist = async () => {
     try {
@@ -36,7 +36,7 @@ const Home = () => {
 
   useEffect(() => {
     getbooklist();
-  }, []);
+  }, [isFocused]);
 
   return (
     <View>
