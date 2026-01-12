@@ -20,7 +20,16 @@ const Home = () => {
     }
   };
   // Delete Item Function
-  const ondeletePressHandler = async () => {};
+  const ondeletePressHandler = async (bookId) => {
+    try {
+      const response = await axios.delete(`${Base_url}/bookId`);
+      Alert.alert('Book Was Deletec Successfully', bookId);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Error Deleting Book');
+    }
+  };
 
   useEffect(() => {
     getbooklist();
@@ -41,7 +50,8 @@ const Home = () => {
             nameofbook={item.nameofbook}
             cover={item.cover}
             price={item.price}
-            ondeletePress={ondeletePressHandler}
+            // id={item.id}
+            ondeletePress={() => ondeletePressHandler(item.id)}
           />
         )}
       />

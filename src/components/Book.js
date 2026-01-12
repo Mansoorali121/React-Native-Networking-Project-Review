@@ -15,7 +15,7 @@ const Book = ({
   price,
   cover,
   categoryColor,
-  ondeletePress
+  ondeletePress,
 }) => {
   return (
     <View style={styles.container}>
@@ -27,6 +27,7 @@ const Book = ({
       <Text>{author}</Text>
       <Text>{nameofbook}</Text>
       <Text>{price}$</Text>
+      {/* <Text>{id}</Text> */}
 
     </View>
   );
