@@ -16,6 +16,7 @@ const Book = ({
   cover,
   categoryColor,
   ondeletePress,
+  
 }) => {
   return (
     <View style={styles.container}>

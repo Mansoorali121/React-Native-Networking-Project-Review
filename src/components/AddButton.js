@@ -2,9 +2,9 @@ import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import React from 'react';
 import { colors } from '../styles/colors';
 
-const AddButton = () => {
+const AddButton = ({onAddpress}) => {
   return (
-    <TouchableOpacity style={styles.cont}>
+    <TouchableOpacity  onPress={onAddpress} style={styles.cont}>
       <Image source={require('../assets/plus.png')} style={styles.btnimage} />
     </TouchableOpacity>
   );

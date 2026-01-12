@@ -61,7 +61,9 @@ const Home = () => {
         )}
       />
       {/* Adding Round Button to Add Books */}
-      <AddButton/>
+      <AddButton
+      onAddpress={()=>Alert.alert("Button is Working: ")}
+      />
     </View>
   );
 };
