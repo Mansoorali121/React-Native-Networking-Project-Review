@@ -2,14 +2,15 @@ import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Book from '../components/Book';
 import axios from 'axios';
-import AddButton from "../components/AddButton"
-import AddorEditBook from "../Screens/AddorEditBook"
+import AddButton from '../components/AddButton';
+import AddorEditBook from '../Screens/AddorEditBook';
 // import {useIsFocused} from '@react-navigation/native';
 
 const Base_url = 'https://69609023e7aa517cb79661a7.mockapi.io/Books';
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [modalvisible, setmodalvisible] = useState(false);
 
   // const isFocused = useIsFocused();
 
@@ -25,7 +26,7 @@ const Home = () => {
     }
   };
   // Delete Item Function
-  const ondeletePressHandler = async (bookId) => {
+  const ondeletePressHandler = async bookId => {
     try {
       const response = await axios.delete(`${Base_url}/${bookId}`);
       Alert.alert('Book Was Deleted Successfully', bookId);
@@ -62,10 +63,8 @@ const Home = () => {
         )}
       />
       {/* Adding Round Button to Add Books */}
-      <AddButton
-      onAddpress={()=>Alert.alert("Button is Working: ")}
-      />
-      <AddorEditBook/>
+      <AddButton onAddpress={() => setmodalvisible(true)} />
+      <AddorEditBook visible={modalvisible} />
     </View>
   );
 };

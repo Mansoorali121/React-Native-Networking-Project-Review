@@ -3,7 +3,7 @@ import React from 'react'
 
 const AddorEditBook = ({visible}) => {
   return (
-    <Modal visible={visible}>
+    <Modal visible={visible} >
       <Text>AddorEditBook</Text>
     </Modal>
   )
