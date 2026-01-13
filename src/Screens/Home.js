@@ -64,7 +64,7 @@ const Home = () => {
       />
       {/* Adding Round Button to Add Books */}
       <AddButton onAddpress={() => setmodalvisible(true)} />
-      <AddorEditBook visible={modalvisible} />
+      <AddorEditBook visible={modalvisible} onRequestClose={()=>setmodalvisible(false)} />
     </View>
   );
 };
