@@ -8,10 +8,10 @@ const App = () => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center' }}>
-      {/* <Home/> */}
-      <MainInput
-        options={{ value: value, onChangeText: text => setValue(text) }}
-      />
+      <Home/>
+      {/* <MainInput
+        options={{ value: value, onChangeText: (text) => setValue(text) }}
+      /> */}
     </View>
   );
 };

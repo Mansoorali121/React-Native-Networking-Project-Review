@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Book from '../components/Book';
 import axios from 'axios';
 import AddButton from "../components/AddButton"
+import AddorEditBook from "../Screens/AddorEditBook"
 // import {useIsFocused} from '@react-navigation/native';
 
 const Base_url = 'https://69609023e7aa517cb79661a7.mockapi.io/Books';
@@ -64,6 +65,7 @@ const Home = () => {
       <AddButton
       onAddpress={()=>Alert.alert("Button is Working: ")}
       />
+      <AddorEditBook/>
     </View>
   );
 };
