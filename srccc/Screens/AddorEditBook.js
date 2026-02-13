@@ -1,5 +1,4 @@
 import {
-  Alert,
   Button,
   Image,
   Modal,
@@ -18,33 +17,7 @@ import axios from 'axios';
 const Base_url = 'https://69609023e7aa517cb79661a7.mockapi.io/Books';
 
 const AddorEditBook = ({ visible, onRequestClose }) => {
-  const [name, setName] = useState('');
-  const [author, setAuthor] = useState('');
-  const [price, setPrice] = useState('');
-  const [imageurl, setImageurl] = useState('');
-
-  const addBooks = async () => {
-    try {
-      const response = await axios.post(`${Base_url}`, {
-        author: author,
-        nameofbook: name,
-        price: price,
-        cover: imageurl,
-        
-      },
-     setName(""),
-      setAuthor(""),
-      setPrice(""),
-      setImageurl(""),
-    );
-     
-      console.log(response.data);
-      Alert.alert('Button pressed and data added');
-    } catch (error) {
-      console.log(error);
-      Alert.alert('Errror Occured: ');
-    }
-  };
+  
   return (
     <Modal
       visible={visible}
@@ -53,22 +26,19 @@ const AddorEditBook = ({ visible, onRequestClose }) => {
     >
       <View style={{ paddingHorizontal: 20 }} />
       {/* Back Arrow to be back */}
-      <Pressable
-        style={{ marginTop: 50, zIndex: 1 }}
-        onPress={() => onRequestClose()}
-      >
-        <Image
+      <Pressable style={{ marginTop: 50, zIndex: 1 }} onPress={()=>onRequestClose()}>
+        <Image 
           source={require('../assets/close-icon.png')}
           style={styles.closeIcon}
         />
       </Pressable>
 
       <View style={styles.formcontainer}>
-        <MainInput options={{ placeholder: 'Book Name: ' }} />
+        <MainInput options={{ placeholder: 'Book Name: ' }}  />
         <MainInput options={{ placeholder: 'Author Name: ' }} />
         <MainInput options={{ placeholder: 'Price: ' }} />
         <MainInput options={{ placeholder: 'Cover URL: ' }} />
-        <MainButton title="Save Book" onPress={addBooks} />
+        <MainButton title="Save Book"  />
       </View>
       {/* <Button title="Modal Close" onPress={() => onRequestClose()} /> */}
     </Modal>
