@@ -1,14 +1,14 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from './src/redux/store';
-import CounterScreen from './src/screens/CounterScreen';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <CounterScreen />
-    </Provider>
-  );
-};
+    <View>
+      <Text>App</Text>
+    </View>
+  )
+}
 
 export default App;
+
+const styles = StyleSheet.create({})
